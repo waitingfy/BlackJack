@@ -1,0 +1,11 @@
+## Author: Walle
+## SavedVariables: BlackJackSavedVars
+## Interface: 50400
+## Title: BlackJack
+## Title-zhCN: 21点 BlackJack
+## Notes-zhCN: 21点扑克游戏,又称为BlackJack
+## Version: 1.0
+localization.en.lua
+Frame.xml
+PokerFunctions.lua
+Frame.lua

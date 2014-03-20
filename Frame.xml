@@ -1,0 +1,413 @@
+﻿<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
+
+   
+
+	<Frame name="MainTableFrame" parent="UIParent" toplevel="true" enableMouse="true" movable="true" clampedToScreen="true" alpha="1" hidden="true">
+		<Size>
+			<AbsDimension x="700" y="500" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER">
+				<Offset x="-35" y="34" />
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Frames>
+		   <Frame name="BetFrame">
+		   <Size>
+			<AbsDimension x="200" y="500" />
+		</Size>
+		<Anchors>
+			<Anchor point="LEFT">
+				<Offset x="0" y="0" />
+			</Anchor>
+		</Anchors>
+            <Frames>		   
+			<Button name="BtnDeal500" inherits="UIPanelButtonTemplate" text="500">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOMLEFT">
+						<Offset x="50" y="130" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   
+				   <OnClick>
+				      PokerClient:AddBets(500)
+				   </OnClick>
+				</Scripts>
+			</Button>
+			
+			<Button name="BtnDeal100" inherits="UIPanelButtonTemplate" text="100">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOMLEFT" relativeTo="BtnDeal500">
+						<Offset x="0" y="-25" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   
+				   <OnClick>
+					  PokerClient:AddBets(100)
+				   </OnClick>
+				</Scripts>
+			</Button>
+			
+			<Button name="BtnDeal50" inherits="UIPanelButtonTemplate" text="50">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOMLEFT" relativeTo="BtnDeal100">
+						<Offset x="0" y="-25" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   
+				   <OnClick>
+				      PokerClient:AddBets(50)
+				   </OnClick>
+				</Scripts>
+			</Button>
+			
+			<Button name="BtnDeal20" inherits="UIPanelButtonTemplate" text="20">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOMLEFT" relativeTo="BtnDeal50">
+						<Offset x="0" y="-25" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   
+				   <OnClick>
+				      PokerClient:AddBets(20)
+				   </OnClick>
+				</Scripts>
+			</Button>
+		   
+		   <Button name="BtnDeal10" inherits="UIPanelButtonTemplate" text="10">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOMLEFT" relativeTo="BtnDeal20">
+						<Offset x="0" y="-25" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   
+				   <OnClick>
+				      PokerClient:AddBets(10)
+				   </OnClick>
+				</Scripts>
+			</Button>
+			</Frames>
+			</Frame>
+			
+			
+			<Frame name="DealFrame">
+			 <Size>
+			   <AbsDimension x="295" y="50" />
+		     </Size>
+		   <Anchors>
+			<Anchor point="BOTTOMRIGHT">
+				<Offset x="50" y="80" />
+			</Anchor>
+		   </Anchors>
+		   <Frames>
+			<Button name="BtnDeal" inherits="UIPanelButtonTemplate" text="Deal">
+				<Size>
+					<AbsDimension x="75" y="50" />
+				</Size>
+				<Anchors>
+					<Anchor point="LEFT">
+						<Offset x="0" y="0" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   
+				   <OnClick>
+					  PokerClient:PrintBets()
+					  PokerClient:GameBegin()
+				   </OnClick>
+				</Scripts>
+			</Button>
+			
+			<Button name="BtnClearBets" inherits="UIPanelButtonTemplate" text="Clear Bets">
+				<Size>
+					<AbsDimension x="100" y="50" />
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOMRIGHT" relativeTo="BtnDeal">
+						<Offset x="120" y="0" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   
+				   <OnClick>
+				      PokerClient:ClearBets()
+				   </OnClick>
+				</Scripts>
+			</Button>
+			</Frames>
+			</Frame>
+			
+			<Frame name="NormalDecisionFrame" hidden="true">
+			 <Size>
+			   <AbsDimension x="295" y="50" />
+		     </Size>
+		   <Anchors>
+			<Anchor point="BOTTOMRIGHT">
+				<Offset x="50" y="80" />
+			</Anchor>
+		   </Anchors>
+		   <Frames>
+			<Button name="BtnHit" inherits="UIPanelButtonTemplate" text="Hit">
+				<Size>
+					<AbsDimension x="75" y="50" />
+				</Size>
+				<Anchors>
+					<Anchor point="LEFT">
+						<Offset x="0" y="0" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   
+				   <OnClick>
+				    PokerClient:HitMe()
+				   </OnClick>
+				</Scripts>
+			</Button>
+			
+			<Button name="BtnStand" inherits="UIPanelButtonTemplate" text="Stand">
+				<Size>
+					<AbsDimension x="75" y="50" />
+				</Size>
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="BtnHit">
+						<Offset x="75" y="0" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   
+				   <OnClick>
+				      PokerClient:Stand()
+				   </OnClick>
+				</Scripts>
+			</Button>
+			
+			<Button name="BtnDouble" inherits="UIPanelButtonTemplate" text="Double">
+				<Size>
+					<AbsDimension x="75" y="50" />
+				</Size>
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="BtnStand">
+						<Offset x="75" y="0" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   
+				   <OnClick>
+				      PokerClient:Double()
+				   </OnClick>
+				</Scripts>
+			</Button>
+			</Frames>
+			</Frame>
+			
+			<Frame name="InsuranceFrame" hidden="true">
+			 <Size>
+			   <AbsDimension x="295" y="50" />
+		     </Size>
+		   <Anchors>
+			<Anchor point="BOTTOMRIGHT">
+				<Offset x="50" y="80" />
+			</Anchor>
+		   </Anchors>
+		   <Frames>
+			<Button name="BtnBuyInsurance" inherits="UIPanelButtonTemplate" text="Insurance">
+				<Size>
+					<AbsDimension x="100" y="50" />
+				</Size>
+				<Anchors>
+					<Anchor point="LEFT">
+						<Offset x="0" y="0" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   
+				   <OnClick>
+				    PokerClient:BuyInsurance()
+				   </OnClick>
+				</Scripts>
+			</Button>
+			
+			<Button name="BtnDeclareInsurance" inherits="UIPanelButtonTemplate" text="No Insurance">
+				<Size>
+					<AbsDimension x="110" y="50" />
+				</Size>
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="BtnHit">
+						<Offset x="140" y="0" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   
+				   <OnClick>
+				      PokerClient:NoInsurance()
+				   </OnClick>
+				</Scripts>
+			</Button>
+			</Frames>
+			</Frame>
+			
+			<Frame name="ReBetFrame" hidden="true">
+			 <Size>
+			   <AbsDimension x="295" y="50" />
+		     </Size>
+		   <Anchors>
+			<Anchor point="BOTTOMRIGHT">
+				<Offset x="50" y="80" />
+			</Anchor>
+		   </Anchors>
+		   <Frames>
+			<Button name="BtnReBet" inherits="UIPanelButtonTemplate" text="ReBet">
+				<Size>
+					<AbsDimension x="100" y="50" />
+				</Size>
+				<Anchors>
+					<Anchor point="LEFT">
+						<Offset x="0" y="0" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   
+				   <OnClick>
+				    PokerClient:ReBet()
+				   </OnClick>
+				</Scripts>
+			</Button>
+			
+			<Button name="BtnNewGame" inherits="UIPanelButtonTemplate" text="New Game">
+				<Size>
+					<AbsDimension x="110" y="50" />
+				</Size>
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="BtnHit">
+						<Offset x="140" y="0" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   
+				   <OnClick>
+				      PokerClient:NewGame()
+				   </OnClick>
+				</Scripts>
+			</Button>
+			</Frames>
+			</Frame>
+			
+			
+			<Button name="BtnTotalMoney" inherits="UIPanelButtonTemplate" text="" >
+				<Size>
+					<AbsDimension x="150" y="30" />
+				</Size>
+				<Anchors>
+					<Anchor point="CENTER">
+						<Offset x="0" y="-250" />
+					</Anchor>
+				</Anchors>
+			</Button>
+			
+			<Button name="BtnTotalBets" inherits="UIPanelButtonTemplate" text="">
+				<Size>
+					<AbsDimension x="70" y="30" />
+				</Size>
+				<Anchors>
+					<Anchor point="CENTER">
+						<Offset x="0" y="-50" />
+					</Anchor>
+				</Anchors>
+			</Button>
+		
+		    <Button name="BtnPlayerTotalValue" inherits="UIPanelButtonTemplate" text="0">
+				<Size>
+					<AbsDimension x="70" y="30" />
+				</Size>
+				<Anchors>
+					<Anchor point="CENTER">
+						<Offset x="-150" y="-150" />
+					</Anchor>
+				</Anchors>
+			</Button>
+			
+			<Button name="BtnComputerTotalValue" inherits="UIPanelButtonTemplate" text="0">
+				<Size>
+					<AbsDimension x="70" y="30" />
+				</Size>
+				<Anchors>
+					<Anchor point="CENTER">
+						<Offset x="-150" y="50" />
+					</Anchor>
+				</Anchors>
+			</Button>
+			
+			<Button name="BtnCloseFrame" inherits="UIPanelButtonTemplate" text="Close" >
+				<Size>
+					<AbsDimension x="50" y="30" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPRIGHT">
+						<Offset x="0" y="0" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+		           <OnClick>
+				      self:GetParent():Hide()
+				   </OnClick>
+		        </Scripts>
+			</Button>
+			<Button name="BtnTitle" inherits="UIPanelButtonTemplate" text="21 Black Jack" >
+				<Size>
+					<AbsDimension x="200" y="50" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOP">
+						<Offset x="0" y="0" />
+					</Anchor>
+				</Anchors>
+			</Button>
+		</Frames>
+		
+		<Scripts>
+		    <OnLoad>
+			    self:RegisterForDrag("LeftButton")
+			</OnLoad>
+            <OnDragStart>
+			    self:StartMoving()
+			</OnDragStart>
+			<OnDragStop>
+			    self:StopMovingOrSizing()
+			</OnDragStop>
+		</Scripts>
+	</Frame>
+	
+	 
+	
+</Ui>
